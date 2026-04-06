@@ -1,76 +1,81 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* WING GIRL — Deep reds, chocolate browns, gold, cream — "Hype Williams meets MySpace" */
+/*
+  WING GIRL — HYPE WILLIAMS EDITION
+  Dark, cinematic, saturated. Fisheye energy. Flash photography.
+  Deep blacks, neon reds, electric gold, hot magenta.
+*/
+
 :root {
-  --button-outline: rgba(0, 0, 0, 0.1);
-  --badge-outline: rgba(0, 0, 0, 0.05);
-  --opaque-button-border-intensity: -8;
-  --elevate-1: rgba(0, 0, 0, 0.03);
-  --elevate-2: rgba(0, 0, 0, 0.08);
+  --button-outline: rgba(255, 255, 255, 0.08);
+  --badge-outline: rgba(255, 255, 255, 0.05);
+  --opaque-button-border-intensity: 9;
+  --elevate-1: rgba(255, 255, 255, 0.03);
+  --elevate-2: rgba(255, 255, 255, 0.07);
 
-  /* Cream / warm off-white surfaces */
-  --background: 30 50% 97%;
-  --foreground: 15 40% 12%;
-  --border: 30 15% 85%;
-  --card: 30 40% 96%;
-  --card-foreground: 15 40% 12%;
-  --card-border: 30 15% 88%;
-  --sidebar: 15 30% 10%;
-  --sidebar-foreground: 30 30% 92%;
-  --sidebar-border: 15 20% 15%;
-  --sidebar-primary: 350 72% 38%;
-  --sidebar-primary-foreground: 30 50% 97%;
-  --sidebar-accent: 15 20% 18%;
-  --sidebar-accent-foreground: 30 30% 92%;
-  --sidebar-ring: 350 72% 38%;
-  --popover: 30 35% 95%;
-  --popover-foreground: 15 40% 12%;
-  --popover-border: 30 15% 82%;
+  /* DARK BY DEFAULT — Hype Williams lives in the dark */
+  --background: 0 0% 3%;
+  --foreground: 40 20% 92%;
+  --border: 0 0% 12%;
+  --card: 0 0% 6%;
+  --card-foreground: 40 20% 92%;
+  --card-border: 0 0% 10%;
+  --sidebar: 0 0% 4%;
+  --sidebar-foreground: 40 20% 90%;
+  --sidebar-border: 0 0% 10%;
+  --sidebar-primary: 350 85% 52%;
+  --sidebar-primary-foreground: 40 20% 96%;
+  --sidebar-accent: 0 0% 10%;
+  --sidebar-accent-foreground: 40 20% 90%;
+  --sidebar-ring: 350 85% 52%;
+  --popover: 0 0% 7%;
+  --popover-foreground: 40 20% 92%;
+  --popover-border: 0 0% 14%;
 
-  /* Deep red primary */
-  --primary: 350 72% 38%;
-  --primary-foreground: 30 50% 97%;
+  /* Electric crimson primary */
+  --primary: 350 90% 50%;
+  --primary-foreground: 0 0% 100%;
 
-  /* Chocolate brown secondary */
-  --secondary: 15 25% 88%;
-  --secondary-foreground: 15 40% 15%;
+  /* Deep dark secondary */
+  --secondary: 0 0% 11%;
+  --secondary-foreground: 40 20% 90%;
 
-  /* Muted warm */
-  --muted: 30 15% 90%;
-  --muted-foreground: 15 10% 45%;
+  /* Muted dark */
+  --muted: 0 0% 14%;
+  --muted-foreground: 0 0% 50%;
 
-  /* Gold accent */
-  --accent: 42 70% 50%;
-  --accent-foreground: 15 40% 12%;
+  /* Electric gold accent */
+  --accent: 45 100% 55%;
+  --accent-foreground: 0 0% 4%;
 
-  --destructive: 0 84% 42%;
+  --destructive: 0 84% 50%;
   --destructive-foreground: 0 0% 98%;
-  --input: 30 10% 75%;
-  --ring: 350 72% 38%;
+  --input: 0 0% 16%;
+  --ring: 350 90% 50%;
 
-  --chart-1: 350 72% 45%;
-  --chart-2: 42 70% 50%;
-  --chart-3: 15 50% 30%;
-  --chart-4: 30 40% 60%;
-  --chart-5: 0 0% 20%;
+  --chart-1: 350 90% 55%;
+  --chart-2: 45 100% 55%;
+  --chart-3: 330 100% 60%;
+  --chart-4: 15 80% 50%;
+  --chart-5: 0 0% 70%;
 
   --font-sans: 'DM Sans', sans-serif;
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-mono: Menlo, monospace;
-  --radius: 0.625rem;
+  --radius: 0.5rem;
 
-  --shadow-2xs: 0px 1px 2px hsl(15 30% 20% / 0.04);
-  --shadow-xs: 0px 1px 3px hsl(15 30% 20% / 0.06);
-  --shadow-sm: 0px 2px 4px hsl(15 30% 20% / 0.06), 0px 1px 2px hsl(15 30% 20% / 0.04);
-  --shadow: 0px 4px 8px hsl(15 30% 20% / 0.06), 0px 2px 4px hsl(15 30% 20% / 0.04);
-  --shadow-md: 0px 6px 12px hsl(15 30% 20% / 0.08), 0px 3px 6px hsl(15 30% 20% / 0.04);
-  --shadow-lg: 0px 8px 24px hsl(15 30% 20% / 0.1), 0px 4px 8px hsl(15 30% 20% / 0.05);
-  --shadow-xl: 0px 16px 40px hsl(15 30% 20% / 0.12), 0px 8px 16px hsl(15 30% 20% / 0.06);
-  --shadow-2xl: 0px 24px 48px hsl(15 30% 20% / 0.18);
+  --shadow-2xs: 0px 1px 2px hsl(0 0% 0% / 0.3);
+  --shadow-xs: 0px 1px 3px hsl(0 0% 0% / 0.4);
+  --shadow-sm: 0px 2px 4px hsl(0 0% 0% / 0.4), 0px 1px 2px hsl(0 0% 0% / 0.3);
+  --shadow: 0px 4px 8px hsl(0 0% 0% / 0.4), 0px 2px 4px hsl(0 0% 0% / 0.3);
+  --shadow-md: 0px 6px 16px hsl(0 0% 0% / 0.5), 0px 3px 6px hsl(0 0% 0% / 0.3);
+  --shadow-lg: 0px 10px 30px hsl(0 0% 0% / 0.6), 0px 4px 10px hsl(0 0% 0% / 0.3);
+  --shadow-xl: 0px 20px 50px hsl(0 0% 0% / 0.7), 0px 8px 20px hsl(0 0% 0% / 0.4);
+  --shadow-2xl: 0px 30px 60px hsl(0 0% 0% / 0.8);
   --tracking-normal: 0em;
   --spacing: 0.25rem;
 
@@ -81,76 +86,19 @@
   --muted-border: hsl(var(--muted));
   --accent-border: hsl(var(--accent));
   --destructive-border: hsl(var(--destructive));
+
+  /* Hype Williams custom vars */
+  --hw-neon-pink: #FF1493;
+  --hw-electric-gold: #FFD700;
+  --hw-crimson: #DC143C;
+  --hw-deep-black: #080808;
+  --hw-warm-white: #F5E6C8;
+  --hw-magenta: #FF00FF;
 }
 
-/* DARK MODE — Rich, cinematic dark */
+/* No separate dark mode — always dark */
 .dark {
-  --button-outline: rgba(255, 255, 255, 0.1);
-  --badge-outline: rgba(255, 255, 255, 0.05);
-  --opaque-button-border-intensity: 9;
-  --elevate-1: rgba(255, 255, 255, 0.04);
-  --elevate-2: rgba(255, 255, 255, 0.09);
-
-  /* Deep chocolate/black surfaces */
-  --background: 15 30% 6%;
-  --foreground: 30 20% 90%;
-  --border: 15 15% 16%;
-  --card: 15 25% 9%;
-  --card-foreground: 30 20% 90%;
-  --card-border: 15 15% 13%;
-  --sidebar: 15 30% 7%;
-  --sidebar-foreground: 30 20% 90%;
-  --sidebar-border: 15 15% 12%;
-  --sidebar-primary: 350 65% 52%;
-  --sidebar-primary-foreground: 30 20% 96%;
-  --sidebar-accent: 15 15% 14%;
-  --sidebar-accent-foreground: 30 20% 90%;
-  --sidebar-ring: 350 65% 52%;
-  --popover: 15 20% 10%;
-  --popover-foreground: 30 20% 90%;
-  --popover-border: 15 15% 16%;
-
-  /* Brighter red for dark mode */
-  --primary: 350 65% 52%;
-  --primary-foreground: 30 20% 96%;
-
-  --secondary: 15 15% 16%;
-  --secondary-foreground: 30 20% 90%;
-
-  --muted: 15 10% 18%;
-  --muted-foreground: 30 10% 55%;
-
-  /* Gold accent */
-  --accent: 42 65% 55%;
-  --accent-foreground: 15 30% 8%;
-
-  --destructive: 0 75% 50%;
-  --destructive-foreground: 0 0% 98%;
-  --input: 15 10% 25%;
-  --ring: 350 65% 52%;
-
-  --chart-1: 350 65% 55%;
-  --chart-2: 42 65% 55%;
-  --chart-3: 15 40% 40%;
-  --chart-4: 30 30% 50%;
-  --chart-5: 0 0% 70%;
-
-  --shadow-2xs: 0px 1px 2px hsl(0 0% 0% / 0.15);
-  --shadow-xs: 0px 1px 3px hsl(0 0% 0% / 0.2);
-  --shadow-sm: 0px 2px 4px hsl(0 0% 0% / 0.2), 0px 1px 2px hsl(0 0% 0% / 0.15);
-  --shadow: 0px 4px 8px hsl(0 0% 0% / 0.2), 0px 2px 4px hsl(0 0% 0% / 0.15);
-  --shadow-md: 0px 6px 12px hsl(0 0% 0% / 0.25), 0px 3px 6px hsl(0 0% 0% / 0.15);
-  --shadow-lg: 0px 8px 24px hsl(0 0% 0% / 0.3), 0px 4px 8px hsl(0 0% 0% / 0.15);
-  --shadow-xl: 0px 16px 40px hsl(0 0% 0% / 0.35), 0px 8px 16px hsl(0 0% 0% / 0.2);
-  --shadow-2xl: 0px 24px 48px hsl(0 0% 0% / 0.45);
-
-  --sidebar-primary-border: hsl(var(--sidebar-primary));
-  --sidebar-accent-border: hsl(var(--sidebar-accent));
-  --primary-border: hsl(var(--primary));
-  --secondary-border: hsl(var(--secondary));
-  --muted-border: hsl(var(--muted));
-  --accent-border: hsl(var(--accent));
-  --destructive-border: hsl(var(--destructive));
+  /* Same as root — always dark */
 }
 
 @layer base {
@@ -159,89 +107,207 @@
   }
   body {
     @apply font-sans antialiased bg-background text-foreground;
+    background: var(--hw-deep-black);
   }
 }
 
-/* Editorial serif utility */
+/* ===== HYPE WILLIAMS TYPOGRAPHY ===== */
 .font-editorial {
   font-family: 'Playfair Display', Georgia, serif;
 }
 
-/* Magazine-style profile card transitions */
+/* Cinematic all-caps tracking */
+.hw-caps {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+}
+
+.hw-mega {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+
+/* ===== GRAIN / NOISE TEXTURE ===== */
+.grain-overlay {
+  position: relative;
+}
+.grain-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 2;
+  mix-blend-mode: overlay;
+}
+
+/* Full page grain */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: overlay;
+}
+
+/* ===== CINEMATIC LETTERBOX ===== */
+.letterbox {
+  position: relative;
+}
+.letterbox::before,
+.letterbox::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 8%;
+  background: black;
+  z-index: 5;
+}
+.letterbox::before { top: 0; }
+.letterbox::after { bottom: 0; }
+
+/* ===== FLASH PHOTOGRAPHY EFFECT ===== */
+.flash-effect {
+  animation: flash 0.15s ease-out;
+}
+@keyframes flash {
+  0% { filter: brightness(3) contrast(0.5); }
+  100% { filter: brightness(1) contrast(1); }
+}
+
+/* ===== NEON GLOW ===== */
+.neon-glow {
+  text-shadow:
+    0 0 10px var(--hw-crimson),
+    0 0 30px var(--hw-crimson),
+    0 0 60px rgba(220, 20, 60, 0.4);
+}
+
+.neon-glow-gold {
+  text-shadow:
+    0 0 10px var(--hw-electric-gold),
+    0 0 30px rgba(255, 215, 0, 0.5),
+    0 0 60px rgba(255, 215, 0, 0.2);
+}
+
+.neon-glow-pink {
+  text-shadow:
+    0 0 10px var(--hw-neon-pink),
+    0 0 30px rgba(255, 20, 147, 0.5),
+    0 0 60px rgba(255, 20, 147, 0.2);
+}
+
+/* ===== SATURATED IMAGE TREATMENT ===== */
+.hw-saturate {
+  filter: saturate(1.4) contrast(1.15) brightness(0.95);
+}
+
+.hw-image {
+  filter: saturate(1.3) contrast(1.2) brightness(0.9);
+  transition: filter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hw-image:hover {
+  filter: saturate(1.6) contrast(1.3) brightness(1);
+}
+
+/* ===== VIGNETTE EFFECT ===== */
+.vignette::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.7) 100%);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* ===== ANIMATIONS ===== */
 .profile-enter {
-  animation: profileFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: profileSlideIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes profileSlideIn {
+  from { opacity: 0; transform: translateY(40px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-@keyframes profileFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Slow cinematic fade */
 .fade-in {
-  animation: fadeIn 0.8s ease-out forwards;
+  animation: fadeIn 1.2s ease-out forwards;
 }
-
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
-/* Gold shimmer for premium elements */
-.gold-shimmer {
-  background: linear-gradient(135deg, hsl(42 70% 50%), hsl(42 80% 60%), hsl(42 70% 50%));
-  background-size: 200% 200%;
-  animation: shimmer 3s ease-in-out infinite;
+.slow-zoom {
+  animation: slowZoom 20s ease-in-out infinite alternate;
+}
+@keyframes slowZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
 }
 
+/* Gold shimmer for premium elements */
+.gold-shimmer {
+  background: linear-gradient(135deg, #B8860B, #FFD700, #DAA520, #FFD700, #B8860B);
+  background-size: 300% 300%;
+  animation: shimmer 4s ease-in-out infinite;
+}
 @keyframes shimmer {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
 }
 
-/* Audio waveform animation */
+/* Audio waveform */
 .waveform-bar {
   animation: waveform 1.2s ease-in-out infinite;
 }
-
 @keyframes waveform {
   0%, 100% { transform: scaleY(0.3); }
   50% { transform: scaleY(1); }
 }
 
-/* Grain texture overlay */
-.grain-overlay::after {
+/* Scanline effect */
+.scanlines::before {
   content: '';
   position: absolute;
   inset: 0;
-  opacity: 0.04;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.03) 2px,
+    rgba(0,0,0,0.03) 4px
+  );
   pointer-events: none;
-  z-index: 1;
+  z-index: 4;
 }
 
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 6px;
+/* Red tint overlay — like Hype Williams color grading */
+.red-wash::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(139, 0, 0, 0.15), rgba(220, 20, 60, 0.1), transparent);
+  pointer-events: none;
+  z-index: 2;
+  mix-blend-mode: color;
 }
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: hsl(var(--muted-foreground) / 0.3);
-  border-radius: 3px;
-}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 2px; }
 
 @layer utilities {
-  input[type='search']::-webkit-search-cancel-button {
-    @apply hidden;
-  }
+  input[type='search']::-webkit-search-cancel-button { @apply hidden; }
   [contenteditable][data-placeholder]:empty::before {
     content: attr(data-placeholder);
     color: hsl(var(--muted-foreground));

@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { useLocation } from "wouter";
 import { demoMatches, demoMessages, demoCurrentUser } from "@/lib/demo-data";
-import { ArrowLeft, Send, Phone, MoreHorizontal, Shield } from "lucide-react";
+import { ArrowLeft, Send, MoreHorizontal, Shield } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { BottomNav } from "./browse";
 
 export default function Matches() {
@@ -16,81 +15,75 @@ export default function Matches() {
   }
 
   return (
-    <div className="min-h-screen bg-background pb-20">
-      <header className="sticky top-0 z-40 bg-background/90 backdrop-blur-md border-b border-border/50">
+    <div className="min-h-screen bg-[#080808] pb-20 text-[#F5E6C8]">
+      <header className="sticky top-0 z-40 bg-black/80 backdrop-blur-xl border-b border-white/5">
         <div className="max-w-lg mx-auto px-4 py-4">
-          <h1 className="font-editorial text-xl font-bold">Matches</h1>
-          <p className="text-xs text-muted-foreground mt-0.5">Your conversations</p>
+          <span className="hw-caps text-xs tracking-[0.3em]">Matches</span>
+          <p className="text-[10px] text-white/20 tracking-wider mt-0.5">Your conversations</p>
         </div>
       </header>
 
       <main className="max-w-lg mx-auto px-4 py-4">
         {demoMatches.length === 0 ? (
           <div className="text-center py-20">
-            <div className="w-16 h-16 rounded-full bg-muted/50 flex items-center justify-center mx-auto mb-4">
-              <Shield className="w-7 h-7 text-muted-foreground" />
+            <div className="w-16 h-16 border border-white/10 flex items-center justify-center mx-auto mb-4">
+              <Shield className="w-6 h-6 text-white/20" />
             </div>
-            <h3 className="font-editorial text-lg font-semibold mb-2">No matches yet</h3>
-            <p className="text-sm text-muted-foreground max-w-xs mx-auto">
-              Keep browsing vetted profiles. When someone you like messages you, they'll appear here.
-            </p>
+            <p className="hw-caps text-xs tracking-[0.2em] text-white/40 mb-2">No matches yet</p>
+            <p className="text-xs text-white/20">Keep discovering. They'll appear here.</p>
           </div>
         ) : (
-          <div className="space-y-1">
+          <div className="space-y-px">
             {demoMatches.map(match => (
               <button
                 key={match.id}
                 data-testid={`match-${match.id}`}
                 onClick={() => setActiveChat(match.id)}
-                className="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-muted/30 transition-colors text-left"
+                className="w-full flex items-center gap-3 p-4 bg-white/2 border border-white/5 hover:border-[#DC143C]/15 transition-colors text-left"
               >
                 <div className="relative shrink-0">
                   <img
                     src={match.profile.photoUrls[0]}
                     alt={match.profile.name}
-                    className="w-14 h-14 rounded-full object-cover border-2 border-border"
+                    className="w-12 h-12 object-cover hw-saturate border border-white/10"
                   />
                   {match.unread && (
-                    <div className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-primary rounded-full border-2 border-background" />
+                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-[#DC143C] border border-black shadow-[0_0_8px_rgba(220,20,60,0.5)]" />
                   )}
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between mb-0.5">
-                    <h3 className={`text-sm ${match.unread ? "font-bold" : "font-semibold"}`}>
+                    <h3 className={`text-sm ${match.unread ? "text-[#F5E6C8] font-bold" : "text-[#F5E6C8]/70"}`}>
                       {match.profile.name}
                     </h3>
-                    <span className="text-[10px] text-muted-foreground">{match.lastMessageTime}</span>
+                    <span className="text-[9px] text-white/20 tracking-wider">{match.lastMessageTime}</span>
                   </div>
-                  <p className={`text-xs truncate ${match.unread ? "text-foreground font-medium" : "text-muted-foreground"}`}>
+                  <p className={`text-xs truncate ${match.unread ? "text-white/50" : "text-white/25"}`}>
                     {match.lastMessage}
                   </p>
-                  <Badge variant="secondary" className="mt-1 text-[9px] px-1.5 py-0 bg-primary/8 text-primary border-primary/15">
+                  <span className="inline-block mt-1 text-[8px] hw-caps tracking-[0.2em] text-[#FFD700]/40 border border-[#FFD700]/10 px-1.5 py-0.5">
                     {match.profile.badge}
-                  </Badge>
+                  </span>
                 </div>
               </button>
             ))}
           </div>
         )}
 
-        {/* Pending Likes Preview */}
+        {/* Pending */}
         <div className="mt-8">
-          <h3 className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] mb-3">
-            Waiting for their first message
-          </h3>
+          <p className="hw-caps text-[9px] tracking-[0.3em] text-white/15 mb-3">
+            Waiting for first message
+          </p>
           <div className="flex gap-3">
-            {[3, 4].map(id => {
-              const p = demoMatches.find(m => m.profile.id === id)?.profile ||
-                        { name: "New Match", photoUrls: ["https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop"], badge: "Pending" };
-              return (
-                <div key={id} className="flex flex-col items-center gap-1.5">
-                  <div className="w-16 h-16 rounded-full bg-muted/50 border-2 border-dashed border-border flex items-center justify-center overflow-hidden">
-                    <span className="text-xl text-muted-foreground">?</span>
-                  </div>
-                  <span className="text-[10px] text-muted-foreground">Liked</span>
+            {[1, 2].map(id => (
+              <div key={id} className="flex flex-col items-center gap-1.5">
+                <div className="w-14 h-14 border border-dashed border-white/10 flex items-center justify-center">
+                  <span className="text-lg text-white/10">?</span>
                 </div>
-              );
-            })}
+                <span className="text-[8px] text-white/15 tracking-wider">LIKED</span>
+              </div>
+            ))}
           </div>
         </div>
       </main>
@@ -120,38 +113,38 @@ function ChatView({ matchId, onBack }: { matchId: number; onBack: () => void }) 
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen bg-[#080808] flex flex-col text-[#F5E6C8]">
       {/* Chat Header */}
-      <header className="sticky top-0 z-40 bg-background/90 backdrop-blur-md border-b border-border/50">
+      <header className="sticky top-0 z-40 bg-black/80 backdrop-blur-xl border-b border-white/5">
         <div className="max-w-lg mx-auto px-4 py-3 flex items-center gap-3">
           <button
             data-testid="button-chat-back"
             onClick={onBack}
-            className="w-9 h-9 rounded-full bg-muted/40 flex items-center justify-center"
+            className="w-9 h-9 border border-white/10 bg-black/40 flex items-center justify-center text-white/50"
           >
             <ArrowLeft className="w-4 h-4" />
           </button>
           <img
             src={match.profile.photoUrls[0]}
             alt=""
-            className="w-9 h-9 rounded-full object-cover"
+            className="w-9 h-9 object-cover hw-saturate border border-white/10"
           />
           <div className="flex-1">
-            <h2 className="text-sm font-semibold">{match.profile.name}</h2>
-            <p className="text-[10px] text-muted-foreground">{match.profile.badge}</p>
+            <h2 className="text-sm font-medium">{match.profile.name}</h2>
+            <p className="text-[9px] text-white/20 tracking-wider">{match.profile.badge}</p>
           </div>
-          <button className="w-9 h-9 rounded-full bg-muted/40 flex items-center justify-center text-muted-foreground">
+          <button className="w-9 h-9 border border-white/10 bg-black/40 flex items-center justify-center text-white/30">
             <MoreHorizontal className="w-4 h-4" />
           </button>
         </div>
       </header>
 
-      {/* Date Safety Tip */}
+      {/* Safety Banner */}
       <div className="max-w-lg mx-auto w-full px-4 py-2">
-        <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-primary/5 border border-primary/10">
-          <Shield className="w-3.5 h-3.5 text-primary shrink-0" />
-          <p className="text-[10px] text-primary/80">
-            This profile was vouched by <span className="font-semibold">{match.profile.wingGirlName}</span> ({match.profile.wingGirlRelation})
+        <div className="flex items-center gap-2 px-3 py-2 border border-[#DC143C]/15 bg-[#DC143C]/5">
+          <Shield className="w-3.5 h-3.5 text-[#DC143C]/50 shrink-0" />
+          <p className="text-[9px] text-[#DC143C]/50 tracking-wider">
+            Vouched by <span className="text-[#DC143C]/70 font-medium">{match.profile.wingGirlName}</span> ({match.profile.wingGirlRelation})
           </p>
         </div>
       </div>
@@ -161,19 +154,16 @@ function ChatView({ matchId, onBack }: { matchId: number; onBack: () => void }) 
         {msgs.map(msg => {
           const isMe = msg.senderId === demoCurrentUser.id;
           return (
-            <div
-              key={msg.id}
-              className={`flex ${isMe ? "justify-end" : "justify-start"}`}
-            >
+            <div key={msg.id} className={`flex ${isMe ? "justify-end" : "justify-start"}`}>
               <div
-                className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed ${
+                className={`max-w-[80%] px-4 py-2.5 text-sm leading-relaxed ${
                   isMe
-                    ? "bg-primary text-primary-foreground rounded-br-md"
-                    : "bg-muted/60 text-foreground rounded-bl-md"
+                    ? "bg-[#DC143C] text-white border border-[#DC143C]/50"
+                    : "bg-white/5 text-white/70 border border-white/8"
                 }`}
               >
                 <p>{msg.content}</p>
-                <p className={`text-[10px] mt-1 ${isMe ? "text-primary-foreground/60" : "text-muted-foreground"}`}>
+                <p className={`text-[9px] mt-1.5 tracking-wider ${isMe ? "text-white/40" : "text-white/20"}`}>
                   {msg.time}
                 </p>
               </div>
@@ -182,21 +172,21 @@ function ChatView({ matchId, onBack }: { matchId: number; onBack: () => void }) 
         })}
       </div>
 
-      {/* Message Input */}
-      <div className="sticky bottom-0 bg-background border-t border-border/50 px-4 py-3">
+      {/* Input */}
+      <div className="sticky bottom-0 bg-black/90 backdrop-blur-xl border-t border-white/5 px-4 py-3">
         <form onSubmit={handleSend} className="max-w-lg mx-auto flex items-center gap-2">
           <Input
             data-testid="input-message"
             value={newMsg}
             onChange={(e) => setNewMsg(e.target.value)}
-            placeholder="Type a message..."
-            className="flex-1 h-10 rounded-full bg-muted/40 border-transparent text-sm px-4"
+            placeholder="TYPE A MESSAGE..."
+            className="flex-1 h-10 rounded-none bg-white/3 border-white/8 text-[#F5E6C8] text-[10px] tracking-[0.1em] px-4 placeholder:text-white/15"
           />
           <Button
             data-testid="button-send"
             type="submit"
             size="icon"
-            className="w-10 h-10 rounded-full bg-primary text-primary-foreground hover:bg-primary/90"
+            className="w-10 h-10 rounded-none bg-[#DC143C] text-white border border-[#DC143C]/50 hover:bg-[#FF1744]"
           >
             <Send className="w-4 h-4" />
           </Button>
